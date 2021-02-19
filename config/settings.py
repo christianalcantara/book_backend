@@ -52,14 +52,13 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-
     'rest_framework',
-
     'django_extensions',
 ]
 
 LOCAL_APPS = [
-    'apps.users',
+    'apps.users.apps.UsersConfig',
+    'apps.book.apps.BookConfig'
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
