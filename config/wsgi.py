@@ -12,11 +12,11 @@ import sys
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 # This allows easy placement of apps within the interior serenity directory.
-current_path = os.path.dirname(os.path.abspath(__file__)).replace('/config', '')
+current_path = os.path.dirname(os.path.abspath(__file__)).replace("/config", "")
 sys.path.append(current_path)
-sys.path.append(os.path.join(current_path, 'apps'))
+sys.path.append(os.path.join(current_path, "apps"))
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
@@ -24,5 +24,5 @@ sys.path.append(os.path.join(current_path, 'apps'))
 application = get_wsgi_application()
 
 from raven.contrib.django.raven_compat.middleware.wsgi import Sentry
-application = Sentry(application)
 
+application = Sentry(application)

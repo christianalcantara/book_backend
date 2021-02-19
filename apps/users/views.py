@@ -20,36 +20,36 @@ class UserViewSet(viewsets.ModelViewSet):
     permission_classes = []
 
     def get_serializer_class(self):
-        if self.action in ['list', 'retrieve']:
+        if self.action in ["list", "retrieve"]:
             return UserSerializer
         return UserWriteSerializer
 
     def perform_create(self, serializer):
         user = serializer.save()
-        user.set_password(self.request.data.get('password'))
+        user.set_password(self.request.data.get("password"))
         user.save()
 
     def perform_update(self, serializer):
         user = serializer.save()
-        if 'password' in self.request.data:
-            user.set_password(self.request.data.get('password'))
+        if "password" in self.request.data:
+            user.set_password(self.request.data.get("password"))
             user.save()
 
     def perform_destroy(self, instance):
         instance.is_active = False
         instance.save()
 
-    @action(methods=['GET'], detail=False)
+    @action(methods=["GET"], detail=False)
     def profile(self, request):
         if request.user.is_authenticated:
             serializer = self.serializer_class(request.user)
             return Response(status=status.HTTP_200_OK, data=serializer.data)
         return Response(status=status.HTTP_401_UNAUTHORIZED)
 
-    @action(methods=['POST'], detail=False)
+    @action(methods=["POST"], detail=False)
     def login(self, request, format=None):
-        email = request.data.get('email', None)
-        password = request.data.get('password', None)
+        email = request.data.get("email", None)
+        password = request.data.get("password", None)
         user = authenticate(username=email, password=password)
 
         if user:
@@ -57,15 +57,15 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(status=status.HTTP_200_OK)
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-    @action(methods=['POST'], detail=False)
+    @action(methods=["POST"], detail=False)
     def register(self, request):
-        last_name = request.data.get('last_name', None)
-        first_name = request.data.get('first_name', None)
-        email = request.data.get('email', None)
-        password = request.data.get('password', None)
+        last_name = request.data.get("last_name", None)
+        first_name = request.data.get("first_name", None)
+        email = request.data.get("email", None)
+        password = request.data.get("password", None)
 
         if User.objects.filter(email__iexact=email).exists():
-            return Response({'status': 210})
+            return Response({"status": 210})
 
         # user creation
         user = User.objects.create(
@@ -77,26 +77,26 @@ class UserViewSet(viewsets.ModelViewSet):
         )
         return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
 
-    @action(methods=['POST'], detail=False)
+    @action(methods=["POST"], detail=False)
     def password_reset(self, request, format=None):
-        if User.objects.filter(email=request.data['email']).exists():
-            user = User.objects.get(email=request.data['email'])
-            params = {'user': user, 'DOMAIN': settings.DOMAIN}
+        if User.objects.filter(email=request.data["email"]).exists():
+            user = User.objects.get(email=request.data["email"])
+            params = {"user": user, "DOMAIN": settings.DOMAIN}
             send_mail(
-                subject='Password reset',
-                message=render_to_string('mail/password_reset.txt', params),
+                subject="Password reset",
+                message=render_to_string("mail/password_reset.txt", params),
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[request.data['email']],
+                recipient_list=[request.data["email"]],
             )
             return Response(status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-    @action(methods=['POST'], detail=False)
+    @action(methods=["POST"], detail=False)
     def password_change(self, request, format=None):
-        if User.objects.filter(token=request.data['token']).exists():
-            user = User.objects.get(token=request.data['token'])
-            user.set_password(request.data['password'])
+        if User.objects.filter(token=request.data["token"]).exists():
+            user = User.objects.get(token=request.data["token"])
+            user.set_password(request.data["password"])
             user.token = uuid4()
             user.save()
             return Response(status=status.HTTP_200_OK)
