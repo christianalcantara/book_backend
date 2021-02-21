@@ -31,12 +31,19 @@ class Book(models.Model):
 
     title = models.CharField(verbose_name=_("Title"), max_length=150, db_index=True)
     description = models.TextField(verbose_name=_("description"))
-    authors = models.ManyToManyField(verbose_name=_("Authors"), to=Author)
+    authors = models.ManyToManyField(
+        verbose_name=_("Authors"), to=Author, related_name="books"
+    )
     created = models.DateTimeField(
         verbose_name=_("Created"), editable=False, blank=True, auto_now_add=True
     )
     modified = models.DateTimeField(
         verbose_name=_("Modified"), editable=False, blank=True, auto_now=True
+    )
+    price = models.DecimalField(
+        verbose_name=_("Rental price"),
+        max_digits=9,
+        decimal_places=2,
     )
 
     class Meta:
@@ -46,3 +53,8 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def is_available(self):
+        """"check if the book is available"""
+        return False if self.rents.filter(return_date__isnull=True).exists() else True
