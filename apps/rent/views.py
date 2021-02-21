@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from .models import Rent
 
-# Create your views here.
+from .serializers import RentSerializer
+
+from rest_framework import viewsets
+
+
+class RentViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Rent to be viewed or edited.
+    """
+
+    queryset = Rent.objects.all()
+    serializer_class = RentSerializer
