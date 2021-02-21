@@ -4,7 +4,7 @@ from .models import Author, Book
 
 
 class AuthorSerializer(serializers.HyperlinkedModelSerializer):
-    created = serializers.DateTimeField(format="%d.%m.%Y %H:%M:%S", read_only=True)
+    created = serializers.DateTimeField(format="%d/%m/%Y %H:%M:%S", read_only=True)
 
     class Meta:
         model = Author
@@ -14,8 +14,8 @@ class AuthorSerializer(serializers.HyperlinkedModelSerializer):
 class BookSerializer(serializers.HyperlinkedModelSerializer):
     authors = AuthorSerializer(many=True)
 
-    created = serializers.DateTimeField(format="%d.%m.%Y %H:%M:%S", read_only=True)
-    modified = serializers.DateTimeField(format="%d.%m.%Y %H:%M:%S", read_only=True)
+    created = serializers.DateTimeField(format="%d/%m/%Y %H:%M:%S", read_only=True)
+    modified = serializers.DateTimeField(format="%d/%m/%Y %H:%M:%S", read_only=True)
     available = serializers.SerializerMethodField(read_only=True)
 
     @staticmethod

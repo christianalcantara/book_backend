@@ -3,10 +3,11 @@ from rest_framework import serializers
 from django.conf import settings
 
 from apps.users.models import User
+from apps.rent.serializers import RentSerializer
 
 
 class UserSerializer(serializers.ModelSerializer):
-    registered_at = serializers.DateTimeField(format="%H:%M %d.%m.%Y", read_only=True)
+    registered_at = serializers.DateTimeField(format="%d/%m/%Y %H:%M:%S", read_only=True)
 
     avatar = serializers.SerializerMethodField(read_only=True)
     full_name = serializers.SerializerMethodField(read_only=True)
@@ -27,10 +28,32 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["email", "avatar", "full_name", "short_name", "registered_at"]
+        fields = [
+            "email",
+            "avatar",
+            "full_name",
+            "short_name",
+            "is_customer",
+            "registered_at",
+        ]
 
 
 class UserWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["email", "password", "first_name", "last_name"]
+        fields = [
+            "email",
+            "password",
+            "first_name",
+            "last_name",
+            "is_customer",
+            "avatar",
+        ]
+
+
+class CustomerSerializer(serializers.HyperlinkedModelSerializer):
+    rents = RentSerializer(many=True)
+
+    class Meta:
+        model = User
+        fields = ["url", "email", "avatar", "full_name", "short_name", "rents"]

@@ -54,10 +54,15 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "rest_framework",
+    "rest_framework.authtoken",
     "django_extensions",
 ]
 
-LOCAL_APPS = ["apps.users.apps.UsersConfig", "apps.book.apps.BookConfig"]
+LOCAL_APPS = [
+    "apps.users.apps.UsersConfig",
+    "apps.book.apps.BookConfig",
+    "apps.rent.apps.RentConfig",
+]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

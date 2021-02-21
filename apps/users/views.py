@@ -1,23 +1,34 @@
-import requests
 from uuid import uuid4
 
-from django.contrib.auth import authenticate, login
 from django.conf import settings
+from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-
+from rest_framework import authentication, permissions
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from apps.users.models import User
-from apps.users.serializers import UserSerializer, UserWriteSerializer
+from apps.users.serializers import (
+    UserSerializer,
+    UserWriteSerializer,
+    CustomerSerializer,
+)
 
 
 class UserViewSet(viewsets.ModelViewSet):
+    """
+    View to list all users in the system.
+
+    * Requires token authentication.
+    * Only admin users are able to access this view.
+    """
+
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAdminUser]
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = []
 
     def get_serializer_class(self):
         if self.action in ["list", "retrieve"]:
@@ -102,3 +113,37 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+class CustomerViewSet(UserViewSet):
+    serializer_class = CustomerSerializer
+
+    def get_serializer_class(self):
+        if self.action in ["list", "retrieve"]:
+            return CustomerSerializer
+        return UserWriteSerializer
+
+    @action(
+        methods=["get"],
+        detail=True,
+        permission_classes=[],
+        url_path="books",
+        url_name="customer-books",
+        name="Books",
+    )
+    def my_books(self, request):
+        """
+        Returns a list of all books that the given user has rented
+        """
+        user = self.get_object()
+        rents = user.rents.all()
+        return Response(
+            [
+                {
+                    "Book": rent.book.title,
+                    "Date": rent.rental_date,
+                    "fees": rent.fees_calculated,
+                }
+                for rent in rents
+            ]
+        )

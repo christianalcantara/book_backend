@@ -2,8 +2,6 @@ from datetime import datetime
 from decimal import Decimal
 
 from django.db import models
-from django.db.models import Min
-from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
@@ -51,6 +49,7 @@ class Rent(models.Model):
     class Meta:
         verbose_name = _("Rent")
         verbose_name_plural = _("Rents")
+        ordering = ['-rental_date']
 
     def __str__(self):
         return f"{self.book.title}"

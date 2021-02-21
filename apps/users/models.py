@@ -1,13 +1,15 @@
-from uuid import uuid4
-
+from django.conf import settings
 from django.contrib.auth.models import (
     BaseUserManager,
     AbstractBaseUser,
     PermissionsMixin,
 )
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from rest_framework.authtoken.models import Token
 
 
 class UserManager(BaseUserManager):
@@ -50,10 +52,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name=_("Last name"), max_length=30, default="last"
     )
     avatar = models.ImageField(verbose_name=_("Avatar"), blank=True)
-    token = models.UUIDField(verbose_name=_("Token"), default=uuid4, editable=False)
 
     is_admin = models.BooleanField(verbose_name=_("Admin"), default=False)
     is_active = models.BooleanField(verbose_name=_("Active"), default=True)
+    is_customer = models.BooleanField(verbose_name=_("Customer"), default=False)
     is_staff = models.BooleanField(verbose_name=_("Staff"), default=False)
     registered_at = models.DateTimeField(
         verbose_name=_("Registered at"), auto_now_add=timezone.now
@@ -89,3 +91,10 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.full_name
+
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+    """ post_save signal to generate token automatically """
+    if created:
+        Token.objects.create(user=instance)
