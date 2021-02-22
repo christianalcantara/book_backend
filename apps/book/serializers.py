@@ -3,15 +3,21 @@ from rest_framework import serializers
 from .models import Author, Book
 
 
-class AuthorSerializer(serializers.HyperlinkedModelSerializer):
+class AuthorSerializer(serializers.ModelSerializer):
+    """ Author models serializer """
+
+    books = serializers.StringRelatedField(many=True)
+
     created = serializers.DateTimeField(format="%d/%m/%Y %H:%M:%S", read_only=True)
 
     class Meta:
         model = Author
-        fields = ["url", "name", "books", "created"]
+        fields = ["id", "name", "books", "created"]
 
 
-class BookSerializer(serializers.HyperlinkedModelSerializer):
+class BookSerializer(serializers.ModelSerializer):
+    """ Book model serializer """
+
     authors = AuthorSerializer(many=True)
 
     created = serializers.DateTimeField(format="%d/%m/%Y %H:%M:%S", read_only=True)
@@ -29,7 +35,7 @@ class BookSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Book
         fields = [
-            "url",
+            "id",
             "title",
             "description",
             "authors",
