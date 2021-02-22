@@ -38,15 +38,15 @@ class Rent(models.Model):
         related_name="rents",
         on_delete=models.PROTECT,
     )
+    price = models.DecimalField(
+        verbose_name=_("Amount value"), max_digits=9, decimal_places=2
+    )
     late_fee_value = models.DecimalField(
         verbose_name=_("late fee"),
         max_digits=9,
         decimal_places=2,
         blank=True,
         null=True,
-    )
-    price = models.DecimalField(
-        verbose_name=_("Amount value"), max_digits=9, decimal_places=2
     )
     interest_value = models.DecimalField(
         verbose_name=_("Interest"),

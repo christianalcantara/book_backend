@@ -1,3 +1,5 @@
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from rest_framework import authentication, permissions, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -35,21 +37,27 @@ class RentViewSet(viewsets.ModelViewSet):
         url_name="rent-give-back",
         name="Book give back",
     )
-    def give_back(self, request):
+    def give_back(self, request, pk=None):
         """
-        Book rent give back
-        is_admin user is required
+        Book rent give back and update values from property function 'fess_calculated'
+        admin user is required to receive
         """
-        book = self.get_object()
+        rent = self.get_object()
         user = request.user
-        if user.is_authenticated:
-            if book.is_available:
-                rent = Rent.objects.create(user=user, book=book, price=book.price)
-                rent_serializer = RentSerializer(rent, context={"request": request})
-                return Response(status=status.HTTP_200_OK, data=rent_serializer.data)
-            else:
+        if user.is_authenticated and user.is_admin:
+            if rent.return_date:
                 return Response(
                     status=status.HTTP_400_BAD_REQUEST,
-                    data={"detail": f"Book: '{book}' is not available for rent."},
+                    data={"detail": _(f"This rent is closed.")},
                 )
+            else:
+                fees = rent.fees_calculated
+                rent.user = user
+                rent.amount = fees.get("amount")
+                rent.late_fee_value = fees.get("late_fee")
+                rent.interest_value = fees.get("interest")
+                rent.return_date = timezone.now()
+                rent.save()
+                rent_serializer = self.serializer_class(rent, context={"request": request})
+                return Response(status=status.HTTP_200_OK, data=rent_serializer.data)
         return Response(status=status.HTTP_401_UNAUTHORIZED)

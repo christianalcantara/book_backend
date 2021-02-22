@@ -1,3 +1,4 @@
+from django.utils.translation import gettext_lazy as _
 from rest_framework import authentication, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -47,6 +48,6 @@ class BookViewSet(viewsets.ModelViewSet):
             else:
                 return Response(
                     status=status.HTTP_400_BAD_REQUEST,
-                    data={"detail": f"Book: '{book}' is not available for rent."},
+                    data={"detail": _(f"Book: '{book}' is not available for rent.")},
                 )
         return Response(status=status.HTTP_401_UNAUTHORIZED)
