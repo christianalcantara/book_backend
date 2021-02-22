@@ -49,12 +49,13 @@ class UserWriteSerializer(serializers.ModelSerializer):
             "last_name",
             "is_customer",
             "avatar",
+            "rents_user",
         ]
 
 
 class CustomerSerializer(serializers.HyperlinkedModelSerializer):
-    rents = RentSerializer(many=True)
+    rents_customer = RentSerializer(many=True)
 
     class Meta:
         model = User
-        fields = ["url", "email", "avatar", "full_name", "short_name", "rents"]
+        fields = ["url", "email", "avatar", "full_name", "short_name", "rents_customer"]

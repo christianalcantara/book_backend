@@ -19,7 +19,16 @@ class UserAdmin(BaseUserAdmin):
         ["Personal info", {"fields": ["last_name", "first_name", "avatar"]}],
         [
             "Settings",
-            {"fields": ["groups", "is_admin", "is_active", "is_staff", "is_superuser", "is_customer"]},
+            {
+                "fields": [
+                    "groups",
+                    "is_admin",
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
+                    "is_customer",
+                ]
+            },
         ],
         ["Important dates", {"fields": ["last_login", "registered_at"]}],
     ]

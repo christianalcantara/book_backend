@@ -9,7 +9,11 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from apps.users.models import User
-from apps.users.serializers import (CustomerSerializer, UserSerializer, UserWriteSerializer)
+from apps.users.serializers import (
+    CustomerSerializer,
+    UserSerializer,
+    UserWriteSerializer,
+)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -83,6 +87,7 @@ class UserViewSet(viewsets.ModelViewSet):
             last_name=last_name,
             first_name=first_name,
             is_admin=False,
+            is_customer=True,
         )
         return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
 
