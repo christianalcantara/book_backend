@@ -13,5 +13,8 @@
     },
     "SENTRY_DSN": "https://1ea2cda5f87f4c5ea84831d30effe03a@o328964.ingest.sentry.io/1843687"
   },
-  "addons": ["heroku-postgresql:hobby-dev"]
+  "addons": ["heroku-postgresql:hobby-dev"],
+  "scripts": {
+    "postdeploy": "python manage.py loaddata apps/users/fixtures/users.json apps/book/fixtures/books.json  apps/rent/fixtures/rents.json"
+  }
 }
