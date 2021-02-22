@@ -7,13 +7,13 @@ https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
-import environ
-from datetime import timedelta
-import os
-from pathlib import Path
-
 # import the logging library
 import logging
+import os
+from datetime import timedelta
+from pathlib import Path
+
+import environ
 
 # Get an instance of a logger
 logger = logging.getLogger("DEBUG")
@@ -184,7 +184,6 @@ TEMPLATES = [
     },
 ]
 
-
 # PASSWORD STORAGE SETTINGS
 # ------------------------------------------------------------------------------
 # See https://docs.djangoproject.com/en/dev/ref/settings/#password-hashers
@@ -218,7 +217,6 @@ AUTHENTICATION_BACKENDS = [
 # Select the correct user model
 AUTH_USER_MODEL = "users.User"
 
-
 # DJANGO REST FRAMEWORK
 # ------------------------------------------------------------------------------
 REST_FRAMEWORK = {
@@ -235,7 +233,6 @@ REST_FRAMEWORK = {
         "rest_framework.parsers.FileUploadParser",
     ],
 }
-
 
 # raven sentry client
 # See https://docs.sentry.io/clients/python/integrations/django/
@@ -258,7 +255,7 @@ LOGGING = {
     "formatters": {
         "verbose": {
             "format": "%(levelname)s %(asctime)s %(module)s "
-            "%(process)d %(thread)d %(message)s"
+                      "%(process)d %(thread)d %(message)s"
         },
     },
     "handlers": {

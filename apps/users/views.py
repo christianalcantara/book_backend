@@ -4,28 +4,26 @@ from django.conf import settings
 from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-from rest_framework import authentication, permissions
-from rest_framework import viewsets, status
+from rest_framework import authentication, permissions, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from apps.users.models import User
-from apps.users.serializers import (
-    UserSerializer,
-    UserWriteSerializer,
-    CustomerSerializer,
-)
+from apps.users.serializers import (CustomerSerializer, UserSerializer, UserWriteSerializer)
 
 
 class UserViewSet(viewsets.ModelViewSet):
     """
     View to list all users in the system.
 
-    * Requires token authentication.
+    * Requires token or session authentication.
     * Only admin users are able to access this view.
     """
 
-    authentication_classes = [authentication.TokenAuthentication]
+    authentication_classes = [
+        authentication.TokenAuthentication,
+        authentication.SessionAuthentication,
+    ]
     permission_classes = [permissions.IsAdminUser]
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -116,6 +114,13 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class CustomerViewSet(UserViewSet):
+    """
+    View to list all customers in the system.
+
+    * Requires token or session authentication.
+    * Only admin users are able to access this view.
+    """
+
     serializer_class = CustomerSerializer
 
     def get_serializer_class(self):

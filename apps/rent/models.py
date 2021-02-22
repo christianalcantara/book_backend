@@ -1,4 +1,3 @@
-from datetime import datetime
 from decimal import Decimal
 
 from django.db import models
@@ -9,14 +8,29 @@ from ..users.models import User
 
 
 class Rent(models.Model):
-    rental_date: datetime = models.DateTimeField(
+    """
+    Class used to register books rented by the customer
+    """
+
+    rental_date = models.DateTimeField(
         verbose_name=_("Rental date"), editable=False, blank=True, auto_now_add=True
     )
-    return_date: datetime = models.DateTimeField(
+    return_date = models.DateTimeField(
         verbose_name=_("Return date"), blank=True, null=True
     )
-    user: User = models.ForeignKey(
-        verbose_name=_("User"), to=User, related_name="rents", on_delete=models.PROTECT
+    customer = models.ForeignKey(
+        verbose_name=_("User"),
+        to=User,
+        related_name="rents_customer",
+        on_delete=models.PROTECT,
+    )
+    user = models.ForeignKey(
+        verbose_name=_("User"),
+        to=User,
+        related_name="rents_user",
+        on_delete=models.PROTECT,
+        blank=True,
+        null=True,
     )
     book = models.ForeignKey(
         verbose_name=_("Book"),
@@ -24,21 +38,24 @@ class Rent(models.Model):
         related_name="rents",
         on_delete=models.PROTECT,
     )
-    late_fee_value: Decimal = models.DecimalField(
+    late_fee_value = models.DecimalField(
         verbose_name=_("late fee"),
         max_digits=9,
         decimal_places=2,
         blank=True,
         null=True,
     )
-    interest_value: Decimal = models.DecimalField(
+    price = models.DecimalField(
+        verbose_name=_("Amount value"), max_digits=9, decimal_places=2
+    )
+    interest_value = models.DecimalField(
         verbose_name=_("Interest"),
         max_digits=9,
         decimal_places=2,
         blank=True,
         null=True,
     )
-    amount: Decimal = models.DecimalField(
+    amount = models.DecimalField(
         verbose_name=_("Amount value"),
         max_digits=9,
         decimal_places=2,
@@ -49,13 +66,13 @@ class Rent(models.Model):
     class Meta:
         verbose_name = _("Rent")
         verbose_name_plural = _("Rents")
-        ordering = ['-rental_date']
+        ordering = ["-rental_date"]
 
     def __str__(self):
         return f"{self.book.title}"
 
     @property
-    def get_days(self):
+    def get_days(self) -> int:
         """ days from the rental date """
         now = timezone.now()
         return (now - self.rental_date).days
@@ -70,9 +87,9 @@ class Rent(models.Model):
         Acima 3 dias      5%         0.4%
         Acima 5 dias      7%         0.6%
         """
-        book_price = self.book.price
-        days = self.get_days
-        amount = book_price
+
+        book_price: Decimal = self.price or self.book.price
+        days: int = self.get_days
         if days == 3:
             late_fee = Decimal(3)
             interest = Decimal(0.2)
@@ -90,7 +107,6 @@ class Rent(models.Model):
         amount = sum([book_price, late_fee_amount, interest_amount])
         return dict(
             days=days,
-            book_price=book_price,
             amount=amount,
             late_fee=late_fee_amount,
             interest=interest_amount,

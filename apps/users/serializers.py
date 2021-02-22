@@ -1,13 +1,14 @@
+from django.conf import settings
 from rest_framework import serializers
 
-from django.conf import settings
-
-from apps.users.models import User
 from apps.rent.serializers import RentSerializer
+from apps.users.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
-    registered_at = serializers.DateTimeField(format="%d/%m/%Y %H:%M:%S", read_only=True)
+    registered_at = serializers.DateTimeField(
+        format="%d/%m/%Y %H:%M:%S", read_only=True
+    )
 
     avatar = serializers.SerializerMethodField(read_only=True)
     full_name = serializers.SerializerMethodField(read_only=True)
