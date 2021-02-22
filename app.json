@@ -4,18 +4,14 @@
   "repository": "https://github.com/christianalcantara/book_backend",
   "website": "https://github.com/christianalcantara/book_backend/",
   "logo": "https://i2.wp.com/www.opengis.ch/wp-content/uploads/2020/04/django-python-logo-e1588009010920.png?resize=100%2C100&ssl=1",
-  "keywords": [
-    "django",
-    "python",
-    "rest framework"
-  ],
+  "keywords": ["python", "django" ],
   "env": {
-    "DEBUG": False,
+    "DEBUG": "False",
     "SECRET_KEY": {
       "description": "Django secret key",
       "generator": "secret"
     },
-    "SENTRY_DSN"="https://1ea2cda5f87f4c5ea84831d30effe03a@o328964.ingest.sentry.io/1843687"
+    "SENTRY_DSN": "https://1ea2cda5f87f4c5ea84831d30effe03a@o328964.ingest.sentry.io/1843687"
   },
   "addons": ["heroku-postgresql:hobby-dev"]
 }
