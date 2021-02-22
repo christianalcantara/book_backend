@@ -1,0 +1,42 @@
+[
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$216000$YVF0SKDM86HZ$TSQnm85l/9BH48lyK5xCwThFkzDZe9U8N6ywoMccYXk=",
+        "last_login": "2021-02-22T03:31:30.556Z",
+        "is_superuser": true,
+        "email": "christian.douglas.alcantara@gmail.com",
+        "first_name": "Christian",
+        "last_name": "Douglas",
+        "avatar": "22267408.jpeg",
+        "is_admin": true,
+        "is_active": true,
+        "is_customer": false,
+        "is_staff": true,
+        "registered_at": "2021-02-18T20:33:02.752Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$216000$tH2GFr5VaHuq$bx9ikD857h/thj0sgSHDHKwldNs5cZVSs62ALkKCm10=",
+        "last_login": null,
+        "is_superuser": false,
+        "email": "john.doe@gmail.com",
+        "first_name": "John",
+        "last_name": "Doe",
+        "avatar": "012scw_ons_crd_02.jpg",
+        "is_admin": false,
+        "is_active": true,
+        "is_customer": true,
+        "is_staff": false,
+        "registered_at": "2021-02-21T06:13:28.715Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

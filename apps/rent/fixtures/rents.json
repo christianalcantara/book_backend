@@ -1,0 +1,122 @@
+[
+{
+    "model": "rent.rent",
+    "pk": 1,
+    "fields": {
+        "rental_date": "2021-02-21T05:04:29.425Z",
+        "return_date": "2021-02-21T05:39:55Z",
+        "customer": 1,
+        "user": 1,
+        "book": 4,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": null
+    }
+},
+{
+    "model": "rent.rent",
+    "pk": 2,
+    "fields": {
+        "rental_date": "2021-02-15T05:39:40.266Z",
+        "return_date": null,
+        "customer": 1,
+        "user": 1,
+        "book": 3,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": null
+    }
+},
+{
+    "model": "rent.rent",
+    "pk": 3,
+    "fields": {
+        "rental_date": "2021-02-18T07:02:21.246Z",
+        "return_date": null,
+        "customer": 1,
+        "user": 2,
+        "book": 3,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": "22.00"
+    }
+},
+{
+    "model": "rent.rent",
+    "pk": 4,
+    "fields": {
+        "rental_date": "2021-02-19T07:02:21.246Z",
+        "return_date": "2021-02-22T04:33:04.965Z",
+        "customer": 1,
+        "user": 1,
+        "book": 3,
+        "price": "12.00",
+        "late_fee_value": "0.00",
+        "interest_value": "0.00",
+        "amount": "12.00"
+    }
+},
+{
+    "model": "rent.rent",
+    "pk": 5,
+    "fields": {
+        "rental_date": "2021-02-20T07:02:21.246Z",
+        "return_date": null,
+        "customer": 1,
+        "user": 2,
+        "book": 3,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": "22.00"
+    }
+},
+{
+    "model": "rent.rent",
+    "pk": 6,
+    "fields": {
+        "rental_date": "2021-02-18T07:02:21.246Z",
+        "return_date": null,
+        "customer": 1,
+        "user": 2,
+        "book": 3,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": "22.00"
+    }
+},
+{
+    "model": "rent.rent",
+    "pk": 7,
+    "fields": {
+        "rental_date": "2021-02-17T07:02:21.246Z",
+        "return_date": null,
+        "customer": 1,
+        "user": 2,
+        "book": 3,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": "22.00"
+    }
+},
+{
+    "model": "rent.rent",
+    "pk": 8,
+    "fields": {
+        "rental_date": "2021-02-21T17:40:40.962Z",
+        "return_date": null,
+        "customer": 1,
+        "user": 1,
+        "book": 4,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": null
+    }
+}
+]

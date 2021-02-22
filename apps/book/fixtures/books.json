@@ -1,0 +1,85 @@
+[
+{
+    "model": "book.author",
+    "pk": 1,
+    "fields": {
+        "name": "Vijaya Khisty Bodach",
+        "created": "2021-02-19T21:17:47.170Z",
+        "modified": "2021-02-19T21:17:47.170Z"
+    }
+},
+{
+    "model": "book.author",
+    "pk": 2,
+    "fields": {
+        "name": "Gail Saunders-Smith",
+        "created": "2021-02-19T21:17:55.749Z",
+        "modified": "2021-02-19T21:17:55.750Z"
+    }
+},
+{
+    "model": "book.author",
+    "pk": 3,
+    "fields": {
+        "name": "Paul McEvoy",
+        "created": "2021-02-19T21:18:05.440Z",
+        "modified": "2021-02-19T21:18:05.440Z"
+    }
+},
+{
+    "model": "book.book",
+    "pk": 1,
+    "fields": {
+        "title": "Flowers",
+        "description": "Discover the beautiful science of flowers! Through full-color photos and simple, easy-to-follow text, this nonfiction book introduces emergent readers to the basics of botany, including information on how flowers grow, along with their uses. All Pebble Plus books align with national and state standards and are designed to help new readers read independently, making them the perfect choice for every child.",
+        "created": "2021-02-19T21:21:22.152Z",
+        "modified": "2021-02-19T21:21:22.152Z",
+        "price": "125.00",
+        "authors": [
+            1
+        ]
+    }
+},
+{
+    "model": "book.book",
+    "pk": 2,
+    "fields": {
+        "title": "The Contemporary Thesaurus of Search Terms and Synonyms",
+        "description": "Whether your search is limited to a single database or is as expansive as all of cyberspace, you won't find the intended results unless you use the words that work. Now in its second edition, Sara Knapp has updated and expanded this invaluable resource. Unlike any other thesaurus available, this popular guide offers a wealth of natural language options in a convenient, A-to-Z format. It's ideal for helping users find the appropriate word or words for computer searches in the humanities, social sciences, and business. The second edition has added more than 9,000 entries to the first edition's extensive list. Now, the Thesaurus contains almost 21,000 search entries! New or expanded areas include broader coverage of business terms and humanities-including arts literature, philosophy, religion, and music.",
+        "created": "2021-02-19T21:26:09.393Z",
+        "modified": "2021-02-19T21:26:09.393Z",
+        "price": "126.00",
+        "authors": [
+            3
+        ]
+    }
+},
+{
+    "model": "book.book",
+    "pk": 3,
+    "fields": {
+        "title": "Flexible Query Answering Systems",
+        "description": "This volume constitutes the Proceedings of the 8th International Conference on Flexible Query Answering Systems, FQAS 2009, held in Roskilde, Denmark, October 26–28, 2009. FQAS 2009 was preceded by the 1994, 1996 and 1998 editions held in Roskilde, Denmark, the FQAS 2000 held in Warsaw, Poland, the 2002 held in Copenhagen, Denmark, and the 2004 and 2006 editions held in Lyon, France, and in Milan, Italy, respectively. FQAS is the premier conference concerned with the very important issue of providing users of information systems with ?exible querying capabilities, and withaneasyandintuitiveaccesstoinformation.Themainobjectiveistoachieve more expressive, informative, cooperative, and productive systems which faci- tate retrieval from information repositories such as databases, libraries, hete- geneous archives and the World-Wide Web. In targeting this objective, the c- ference draws on several research areas, such as information retrieval, database management, information ?ltering, knowledge representation, soft computing, management of multimedia information, and human–computer interaction. The conference provides a unique opportunity for researchers, developers and pr- titioners to explore new ideas and approaches in a multidisciplinary forum. The overalltopic of the FQAS conferences is innovative query systems aimed at providing easy, ?exible and human-friendly access to information. Such s- tems arebecoming increasinglyimportantalsodue to the huge andalwaysgr- ing number of users as well as the growing amount of available information.",
+        "created": "2021-02-19T21:26:35.969Z",
+        "modified": "2021-02-19T21:26:35.969Z",
+        "price": "65.00",
+        "authors": [
+            2
+        ]
+    }
+},
+{
+    "model": "book.book",
+    "pk": 4,
+    "fields": {
+        "title": "Test Book",
+        "description": "lorem ipsum",
+        "created": "2021-02-21T03:29:57.952Z",
+        "modified": "2021-02-21T05:44:13.625Z",
+        "price": "48.00",
+        "authors": [
+            1
+        ]
+    }
+}
+]
