@@ -58,6 +58,8 @@ class RentViewSet(viewsets.ModelViewSet):
                 rent.interest_value = fees.get("interest")
                 rent.return_date = timezone.now()
                 rent.save()
-                rent_serializer = self.serializer_class(rent, context={"request": request})
+                rent_serializer = self.serializer_class(
+                    rent, context={"request": request}
+                )
                 return Response(status=status.HTTP_200_OK, data=rent_serializer.data)
         return Response(status=status.HTTP_401_UNAUTHORIZED)

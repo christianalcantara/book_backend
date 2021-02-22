@@ -8,31 +8,48 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('rent', '0004_delete_fee'),
+        ("rent", "0004_delete_fee"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='rent',
-            options={'ordering': ['-rental_date'], 'verbose_name': 'Rent', 'verbose_name_plural': 'Rents'},
+            name="rent",
+            options={
+                "ordering": ["-rental_date"],
+                "verbose_name": "Rent",
+                "verbose_name_plural": "Rents",
+            },
         ),
         migrations.AddField(
-            model_name='rent',
-            name='customer',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.PROTECT,
-                                    related_name='rents_customer', to='users.user', verbose_name='User'),
+            model_name="rent",
+            name="customer",
+            field=models.ForeignKey(
+                default=1,
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="rents_customer",
+                to="users.user",
+                verbose_name="User",
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='rent',
-            name='price',
-            field=models.DecimalField(decimal_places=2, default=12, max_digits=9, verbose_name='Amount value'),
+            model_name="rent",
+            name="price",
+            field=models.DecimalField(
+                decimal_places=2, default=12, max_digits=9, verbose_name="Amount value"
+            ),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='rent',
-            name='user',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT,
-                                    related_name='rents_user', to=settings.AUTH_USER_MODEL, verbose_name='User'),
+            model_name="rent",
+            name="user",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="rents_user",
+                to=settings.AUTH_USER_MODEL,
+                verbose_name="User",
+            ),
         ),
     ]
