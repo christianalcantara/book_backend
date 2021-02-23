@@ -62,12 +62,12 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://book-backend-rest.herokuapp.com/)
 
-  - Modern Python development with Python 3.8+
-  - Bleeding edge Django 3.0+
-  - PostgreSQL 11.6+
-  - Complete [Django Rest Framework](http://www.django-rest-framework.org/) integration
-  - Always current dependencies and security updates enforced by [pyup.io](https://pyup.io/).
-  - A slim but robust foundation -- just enough to maximize your productivity, nothing more.
+- Modern Python development with Python 3.8+
+- Bleeding edge Django 3.0+
+- PostgreSQL 11.6+
+- Complete [Django Rest Framework](http://www.django-rest-framework.org/) integration
+- Always current dependencies and security updates enforced by [pyup.io](https://pyup.io/).
+- A slim but robust foundation -- just enough to maximize your productivity, nothing more.
 
 <!-- GETTING STARTED -->
 
@@ -89,20 +89,20 @@ Use Heroku button to deploy
 [![asciicast](https://asciinema.org/a/Q1GGnI1ZfcT5WJxCCvBBoiobN.svg)](https://asciinema.org/a/Q1GGnI1ZfcT5WJxCCvBBoiobN)
 </p>
 
- 1. Clone the repo
+1. Clone the repo
    ```bash
    $ git clone https://github.com/christianalcantara/book_backend.git
 
    # jump do path
    $ cd book_backend
    ```
- 2. Setup project environment with [virtualenv](https://virtualenv.pypa.io) and [pip](https://pip.pypa.io).
+2. Setup project environment with [virtualenv](https://virtualenv.pypa.io) and [pip](https://pip.pypa.io).
     ```bash
     $ virtualenv venv
     $ source venv/bin/activate
     $ pip install -r requirements.txt
     ```
- 3. Create dotenv file and define enviroment variables.
+3. Create dotenv file and define enviroment variables.
    ```bash
    $ touch .env
    $ echo "#Django
@@ -127,7 +127,7 @@ Use Heroku button to deploy
    $ python manage.py runserver
    ```
 
- 5. Run tests
+5. Run tests
    ```shell
    $ python manage.py test
    ```
@@ -146,7 +146,7 @@ Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API end
  $ curl -X POST "https://book-backend-rest.herokuapp.com/api-token-auth/" -H "accept: application/json" -H "Content-Type: application/json" -H "X-CSRFToken: uoQy2P3gGWwG3jPtI9puLIazKmvGBnmd9KYUK6bopcUuAdyxYaY5YRJOs4s5d22N" -d "{ \"username\": \"admin@gmail.com\", \"password\": \"adminpassword\"}"
  ```
 
-  - Response
+- Response
 
   ```json
   {
