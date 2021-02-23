@@ -7,7 +7,7 @@ from rest_framework_swagger.views import get_swagger_view
 
 from config.api import api
 
-schema_view = get_swagger_view(title='Book Backend')
+schema_view = get_swagger_view(title="Book Backend")
 
 urlpatterns = [
     path("", schema_view),

@@ -8,11 +8,11 @@ ______ _                        ______            _                  _
      _/ |             __/ |
     |__/             |___/
 """
-__title__ = 'Django REST framework'
-__version__ = '0.1.0'
-__author__ = 'Christian Douglas Alcântara'
-__license__ = 'MIT'
-__copyright__ = f'Copyright 2021 {__author__}'
+__title__ = "Django REST framework"
+__version__ = "0.1.0"
+__author__ = "Christian Douglas Alcântara"
+__license__ = "MIT"
+__copyright__ = f"Copyright 2021 {__author__}"
 
 # Version synonym
 VERSION = __version__

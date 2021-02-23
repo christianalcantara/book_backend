@@ -46,7 +46,6 @@ class BookTestCase(TestCase):
     def test_get_all_puppies(self):
         # get API response
         response = client.get(reverse("book-list"))
-        print(">>>>", response.request)
         # get data from db
         books = Book.objects.all()
         serializer = BookSerializer(books, many=True)
