@@ -25,7 +25,7 @@
       ],
       "scripts":{
         "test-setup": "python manage.py collectstatic --noinput",
-        "test": "python manage.py test --keepdb"
+        "test": "python manage.py test --settings=config.heroku_ci_test_settings"
       }
     }
   }
