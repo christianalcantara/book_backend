@@ -55,6 +55,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
+    "rest_framework_swagger",
     "django_extensions",
 ]
 
@@ -239,6 +240,7 @@ REST_FRAMEWORK = {
         "rest_framework.parsers.MultiPartParser",
         "rest_framework.parsers.FileUploadParser",
     ],
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
 # raven sentry client
@@ -301,3 +303,6 @@ LOGGING = {
 }
 
 RAVEN_CONFIG = {"DSN": SENTRY_DSN}
+
+LOGIN_URL = "/api-auth/login/"
+LOGOUT_URL = "/logout/"
