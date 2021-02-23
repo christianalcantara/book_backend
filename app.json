@@ -19,9 +19,13 @@
     "postdeploy": "python manage.py loaddata apps/users/fixtures/users.json apps/book/fixtures/books.json apps/rent/fixtures/rents.json"
   },
   "environments": {
-    "test": {
-      "scripts": {
-        "test": "python manage.py test"
+    "test":{
+      "addons": [
+          "heroku-postgresql:hobby-dev"
+      ],
+      "scripts":{
+        "test-setup": "python manage.py collectstatic --noinput",
+        "test": "python manage.py test --keepdb"
       }
     }
   }
