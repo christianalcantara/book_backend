@@ -38,7 +38,7 @@
     <li>
       <a href="#usage">Usage</a>
       <ul>
-        <li><a href="#authorization-toke">Authorization Token</a></li>
+        <li><a href="#authorization-token">Authorization Token</a></li>
         <li><a href="#get-customers">Get Customers</a></li>
         <li><a href="#get-books">Get Books</a></li>
       </ul>
@@ -313,7 +313,7 @@ Clique [here](https://dashboard.heroku.com/apps/book-backend-rest?web-console=bo
 ]
 ```
 
-### Get Customers
+### Get Book
 
 - curl
  ```bash
