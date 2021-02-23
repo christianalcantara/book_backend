@@ -1,4 +1,5 @@
 [![Django CI](https://github.com/christianalcantara/book_backend/actions/workflows/django.yml/badge.svg)](https://github.com/christianalcantara/book_backend/actions/workflows/django.yml)
+![Codacy grade](https://img.shields.io/codacy/grade/14f9573d0954456f932ff5593e8155f2)
 [![Updates](https://pyup.io/repos/github/christianalcantara/book_backend/shield.svg)](https://pyup.io/repos/github/christianalcantara/book_backend/)
 [![Python 3](https://pyup.io/repos/github/christianalcantara/book_backend/python-3-shield.svg)](https://pyup.io/repos/github/christianalcantara/book_backend/)
 [![GitHub issues](https://img.shields.io/github/issues/christianalcantara/book_backend)](https://github.com/christianalcantara/book_backend/issues)
@@ -55,20 +56,18 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://book-backend-rest.herokuapp.com/)
 
-- Modern Python development with Python 3.8+
-- Bleeding edge Django 3.0+
-- PostgreSQL 11.6+
-- Complete [Django Rest Framework](http://www.django-rest-framework.org/) integration
-- Always current dependencies and security updates enforced by [pyup.io](https://pyup.io/).
-- A slim but robust foundation -- just enough to maximize your productivity, nothing more.
+  - Modern Python development with Python 3.8+
+  - Bleeding edge Django 3.0+
+  - PostgreSQL 11.6+
+  - Complete [Django Rest Framework](http://www.django-rest-framework.org/) integration
+  - Always current dependencies and security updates enforced by [pyup.io](https://pyup.io/).
+  - A slim but robust foundation -- just enough to maximize your productivity, nothing more.
 
 <!-- GETTING STARTED -->
 
@@ -90,20 +89,20 @@ Use Heroku button to deploy
 [![asciicast](https://asciinema.org/a/Q1GGnI1ZfcT5WJxCCvBBoiobN.svg)](https://asciinema.org/a/Q1GGnI1ZfcT5WJxCCvBBoiobN)
 </p>
 
-1. Clone the repo
+ 1. Clone the repo
    ```bash
    $ git clone https://github.com/christianalcantara/book_backend.git
 
    # jump do path
    $ cd book_backend
    ```
-2. Setup project environment with [virtualenv](https://virtualenv.pypa.io) and [pip](https://pip.pypa.io).
+ 2. Setup project environment with [virtualenv](https://virtualenv.pypa.io) and [pip](https://pip.pypa.io).
     ```bash
     $ virtualenv venv
     $ source venv/bin/activate
     $ pip install -r requirements.txt
     ```
-3. Create dotenv file and define enviroment variables.
+ 3. Create dotenv file and define enviroment variables.
    ```bash
    $ touch .env
    $ echo "#Django
@@ -117,7 +116,7 @@ Use Heroku button to deploy
      SENTRY_DSN=https://youdnsexample.ingest.sentry.io/keyexample" > .env
    ```
 
-4. Migrate the database and run
+ 4. Migrate the database and run
    ```shell
    $ python manage.py migrate
 
@@ -128,7 +127,7 @@ Use Heroku button to deploy
    $ python manage.py runserver
    ```
 
-4. Run tests
+ 5. Run tests
    ```shell
    $ python manage.py test
    ```
@@ -144,22 +143,22 @@ Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API end
 - curl
 
  ```bash
- curl -X POST "https://book-backend-rest.herokuapp.com/api-token-auth/" -H "accept: application/json" -H "Content-Type: application/json" -H "X-CSRFToken: uoQy2P3gGWwG3jPtI9puLIazKmvGBnmd9KYUK6bopcUuAdyxYaY5YRJOs4s5d22N" -d "{ \"username\": \"admin@gmail.com\", \"password\": \"adminpassword\"}"
+ $ curl -X POST "https://book-backend-rest.herokuapp.com/api-token-auth/" -H "accept: application/json" -H "Content-Type: application/json" -H "X-CSRFToken: uoQy2P3gGWwG3jPtI9puLIazKmvGBnmd9KYUK6bopcUuAdyxYaY5YRJOs4s5d22N" -d "{ \"username\": \"admin@gmail.com\", \"password\": \"adminpassword\"}"
  ```
 
-- Response
+  - Response
 
-```json
-{
-  "token": "71b3e6c42f5305a2ee4a1a2b46631662ab12a83b"
-}
-```
+  ```json
+  {
+    "token": "71b3e6c42f5305a2ee4a1a2b46631662ab12a83b"
+  }
+  ```
 
 ### Get Customers
 
- ```bash
- curl --location --request GET 'https://book-backend-rest.herokuapp.com/api/customers/' --header 'Authorization: Token 71b3e6c42f5305a2ee4a1a2b46631662ab12a83b'
- ```
+  ```bash
+  $ curl --location --request GET 'https://book-backend-rest.herokuapp.com/api/customers/' --header 'Authorization: Token 71b3e6c42f5305a2ee4a1a2b46631662ab12a83b'
+  ```
 
 <details>
 <summary>Response</summary>
@@ -343,86 +342,87 @@ Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API end
 
 ```json
 [
-    {
-        "id": 4,
-        "title": "Test Book",
-        "description": "lorem ipsum",
-        "authors": [
-            {
-                "id": 1,
-                "name": "Vijaya Khisty Bodach",
-                "books": [
-                    "Test Book",
-                    "Flowers"
-                ],
-                "created": "19/02/2021 21:17:47"
-            }
-        ],
-        "available": false,
-        "price": "48.00",
-        "created": "21/02/2021 03:29:57",
-        "modified": "21/02/2021 05:44:13"
-    },
-    {
-        "id": 3,
-        "title": "Flexible Query Answering Systems",
-        "description": "This volume constitutes the Proceedings of the 8th International Conference on Flexible Query Answering Systems, FQAS 2009, held in Roskilde, Denmark, October 26–28, 2009. FQAS 2009 was preceded by the 1994, 1996 and 1998 editions held in Roskilde, Denmark, the FQAS 2000 held in Warsaw, Poland, the 2002 held in Copenhagen, Denmark, and the 2004 and 2006 editions held in Lyon, France, and in Milan, Italy, respectively. FQAS is the premier conference concerned with the very important issue of providing users of information systems with ?exible querying capabilities, and withaneasyandintuitiveaccesstoinformation.Themainobjectiveistoachieve more expressive, informative, cooperative, and productive systems which faci- tate retrieval from information repositories such as databases, libraries, hete- geneous archives and the World-Wide Web. In targeting this objective, the c- ference draws on several research areas, such as information retrieval, database management, information ?ltering, knowledge representation, soft computing, management of multimedia information, and human–computer interaction. The conference provides a unique opportunity for researchers, developers and pr- titioners to explore new ideas and approaches in a multidisciplinary forum. The overalltopic of the FQAS conferences is innovative query systems aimed at providing easy, ?exible and human-friendly access to information. Such s- tems arebecoming increasinglyimportantalsodue to the huge andalwaysgr- ing number of users as well as the growing amount of available information.",
-        "authors": [
-            {
-                "id": 2,
-                "name": "Gail Saunders-Smith",
-                "books": [
-                    "Flexible Query Answering Systems"
-                ],
-                "created": "19/02/2021 21:17:55"
-            }
-        ],
-        "available": false,
-        "price": "65.00",
-        "created": "19/02/2021 21:26:35",
-        "modified": "19/02/2021 21:26:35"
-    },
-    {
-        "id": 2,
-        "title": "The Contemporary Thesaurus of Search Terms and Synonyms",
-        "description": "Whether your search is limited to a single database or is as expansive as all of cyberspace, you won't find the intended results unless you use the words that work. Now in its second edition, Sara Knapp has updated and expanded this invaluable resource. Unlike any other thesaurus available, this popular guide offers a wealth of natural language options in a convenient, A-to-Z format. It's ideal for helping users find the appropriate word or words for computer searches in the humanities, social sciences, and business. The second edition has added more than 9,000 entries to the first edition's extensive list. Now, the Thesaurus contains almost 21,000 search entries! New or expanded areas include broader coverage of business terms and humanities-including arts literature, philosophy, religion, and music.",
-        "authors": [
-            {
-                "id": 3,
-                "name": "Paul McEvoy",
-                "books": [
-                    "The Contemporary Thesaurus of Search Terms and Synonyms"
-                ],
-                "created": "19/02/2021 21:18:05"
-            }
-        ],
-        "available": true,
-        "price": "126.00",
-        "created": "19/02/2021 21:26:09",
-        "modified": "19/02/2021 21:26:09"
-    },
-    {
+  {
+    "id": 4,
+    "title": "Test Book",
+    "description": "lorem ipsum",
+    "authors": [
+      {
         "id": 1,
-        "title": "Flowers",
-        "description": "Discover the beautiful science of flowers! Through full-color photos and simple, easy-to-follow text, this nonfiction book introduces emergent readers to the basics of botany, including information on how flowers grow, along with their uses. All Pebble Plus books align with national and state standards and are designed to help new readers read independently, making them the perfect choice for every child.",
-        "authors": [
-            {
-                "id": 1,
-                "name": "Vijaya Khisty Bodach",
-                "books": [
-                    "Test Book",
-                    "Flowers"
-                ],
-                "created": "19/02/2021 21:17:47"
-            }
+        "name": "Vijaya Khisty Bodach",
+        "books": [
+          "Test Book",
+          "Flowers"
         ],
-        "available": true,
-        "price": "125.00",
-        "created": "19/02/2021 21:21:22",
-        "modified": "19/02/2021 21:21:22"
-    }
+        "created": "19/02/2021 21:17:47"
+      }
+    ],
+    "available": false,
+    "price": "48.00",
+    "created": "21/02/2021 03:29:57",
+    "modified": "21/02/2021 05:44:13"
+  },
+  {
+    "id": 3,
+    "title": "Flexible Query Answering Systems",
+    "description": "This volume constitutes the Proceedings of the 8th International Conference on Flexible Query Answering Systems, FQAS 2009, held in Roskilde, Denmark, October 26–28, 2009. FQAS 2009 was preceded by the 1994, 1996 and 1998 editions held in Roskilde, Denmark, the FQAS 2000 held in Warsaw, Poland, the 2002 held in Copenhagen, Denmark, and the 2004 and 2006 editions held in Lyon, France, and in Milan, Italy, respectively. FQAS is the premier conference concerned with the very important issue of providing users of information systems with ?exible querying capabilities, and withaneasyandintuitiveaccesstoinformation.Themainobjectiveistoachieve more expressive, informative, cooperative, and productive systems which faci- tate retrieval from information repositories such as databases, libraries, hete- geneous archives and the World-Wide Web. In targeting this objective, the c- ference draws on several research areas, such as information retrieval, database management, information ?ltering, knowledge representation, soft computing, management of multimedia information, and human–computer interaction. The conference provides a unique opportunity for researchers, developers and pr- titioners to explore new ideas and approaches in a multidisciplinary forum. The overalltopic of the FQAS conferences is innovative query systems aimed at providing easy, ?exible and human-friendly access to information. Such s- tems arebecoming increasinglyimportantalsodue to the huge andalwaysgr- ing number of users as well as the growing amount of available information.",
+    "authors": [
+      {
+        "id": 2,
+        "name": "Gail Saunders-Smith",
+        "books": [
+          "Flexible Query Answering Systems"
+        ],
+        "created": "19/02/2021 21:17:55"
+      }
+    ],
+    "available": false,
+    "price": "65.00",
+    "created": "19/02/2021 21:26:35",
+    "modified": "19/02/2021 21:26:35"
+  },
+  {
+    "id": 2,
+    "title": "The Contemporary Thesaurus of Search Terms and Synonyms",
+    "description": "Whether your search is limited to a single database or is as expansive as all of cyberspace, you won't find the intended results unless you use the words that work. Now in its second edition, Sara Knapp has updated and expanded this invaluable resource. Unlike any other thesaurus available, this popular guide offers a wealth of natural language options in a convenient, A-to-Z format. It's ideal for helping users find the appropriate word or words for computer searches in the humanities, social sciences, and business. The second edition has added more than 9,000 entries to the first edition's extensive list. Now, the Thesaurus contains almost 21,000 search entries! New or expanded areas include broader coverage of business terms and humanities-including arts literature, philosophy, religion, and music.",
+    "authors": [
+      {
+        "id": 3,
+        "name": "Paul McEvoy",
+        "books": [
+          "The Contemporary Thesaurus of Search Terms and Synonyms"
+        ],
+        "created": "19/02/2021 21:18:05"
+      }
+    ],
+    "available": true,
+    "price": "126.00",
+    "created": "19/02/2021 21:26:09",
+    "modified": "19/02/2021 21:26:09"
+  },
+  {
+    "id": 1,
+    "title": "Flowers",
+    "description": "Discover the beautiful science of flowers! Through full-color photos and simple, easy-to-follow text, this nonfiction book introduces emergent readers to the basics of botany, including information on how flowers grow, along with their uses. All Pebble Plus books align with national and state standards and are designed to help new readers read independently, making them the perfect choice for every child.",
+    "authors": [
+      {
+        "id": 1,
+        "name": "Vijaya Khisty Bodach",
+        "books": [
+          "Test Book",
+          "Flowers"
+        ],
+        "created": "19/02/2021 21:17:47"
+      }
+    ],
+    "available": true,
+    "price": "125.00",
+    "created": "19/02/2021 21:21:22",
+    "modified": "19/02/2021 21:21:22"
+  }
 ]
 ```
+
 </details>
 
 <!-- ROADMAP -->
@@ -446,12 +446,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Project Link: [https://github.com/christianalcantara/book_backend](https://github.com/christianalcantara/book_backend)
 
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[stars-url]: https://github.com/christianalcantara/book_backend/stargazers
-
-[license-url]: https://github.com/christianalcantara/book_backend/blob/master/LICENSE.txt
 
 [product-screenshot]: docs/images/screenshot.png
