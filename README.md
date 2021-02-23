@@ -1,5 +1,5 @@
 [![Django CI](https://github.com/christianalcantara/book_backend/actions/workflows/django.yml/badge.svg)](https://github.com/christianalcantara/book_backend/actions/workflows/django.yml)
-![Codacy grade](https://img.shields.io/codacy/grade/14f9573d0954456f932ff5593e8155f2)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7c1a68a9935446c5b6e1e346a290f721)](https://www.codacy.com/gh/christianalcantara/book_backend/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=christianalcantara/book_backend&amp;utm_campaign=Badge_Grade)
 [![Updates](https://pyup.io/repos/github/christianalcantara/book_backend/shield.svg)](https://pyup.io/repos/github/christianalcantara/book_backend/)
 [![Python 3](https://pyup.io/repos/github/christianalcantara/book_backend/python-3-shield.svg)](https://pyup.io/repos/github/christianalcantara/book_backend/)
 [![GitHub issues](https://img.shields.io/github/issues/christianalcantara/book_backend)](https://github.com/christianalcantara/book_backend/issues)
