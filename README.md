@@ -59,7 +59,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://book-backend-rest.herokuapp.com/#)
+[![Product Name Screen Shot][product-screenshot]](https://book-backend-rest.herokuapp.com/)
 
 - Modern Python development with Python 3.8+
 - Bleeding edge Django 3.0+
@@ -125,7 +125,7 @@ Use Heroku button to deploy
 <!-- USAGE -->
 
 ## Usage
-Clique [here](https://dashboard.heroku.com/apps/book-backend-rest?web-console=book-backend-rest) to view complete API endpoints.
+Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API endpoints.
 
 ### Autorization Token
 
