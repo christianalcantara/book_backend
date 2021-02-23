@@ -68,7 +68,6 @@
 - Always current dependencies and security updates enforced by [pyup.io](https://pyup.io/).
 - A slim but robust foundation -- just enough to maximize your productivity, nothing more.
 
-
 <!-- GETTING STARTED -->
 
 ## Getting Started
@@ -125,15 +124,19 @@ Use Heroku button to deploy
 <!-- USAGE -->
 
 ## Usage
+
 Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API endpoints.
 
-### Autorization Token
+### Authorization Token
 
 - curl
+
  ```bash
  curl -X POST "https://book-backend-rest.herokuapp.com/api-token-auth/" -H "accept: application/json" -H "Content-Type: application/json" -H "X-CSRFToken: uoQy2P3gGWwG3jPtI9puLIazKmvGBnmd9KYUK6bopcUuAdyxYaY5YRJOs4s5d22N" -d "{ \"username\": \"admin@gmail.com\", \"password\": \"adminpassword\"}"
  ```
+
 - Response
+
 ```json
 {
   "token": "71b3e6c42f5305a2ee4a1a2b46631662ab12a83b"
@@ -142,184 +145,190 @@ Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API end
 
 ### Get Customers
 
-- curl
  ```bash
  curl --location --request GET 'https://book-backend-rest.herokuapp.com/api/customers/' --header 'Authorization: Token 71b3e6c42f5305a2ee4a1a2b46631662ab12a83b'
  ```
-- Response
+
+<details>
+<summary>Response</summary>
+
 ```json
 [
-    {
-        "url": "https://book-backend-rest.herokuapp.com/api/customers/2",
-        "email": "john.doe@gmail.com",
-        "avatar": "012scw_ons_crd_02.jpg",
-        "full_name": "John Doe",
-        "short_name": "Doe J.",
-        "rents_customer": []
-    },
-    {
-        "url": "https://book-backend-rest.herokuapp.com/api/customers/1",
-        "email": "admin@gmail.com",
-        "avatar": "22267408.jpeg",
-        "full_name": "Admin User",
-        "short_name": "User A.",
-        "rents_customer": [
-            {
-                "url": "https://book-backend-rest.herokuapp.com/api/rent/8",
-                "fees": {
-                    "days": 1,
-                    "amount": 12.0,
-                    "late_fee": 0.0,
-                    "interest": 0.0
-                },
-                "rental_date": "21/02/2021 17:40:40",
-                "return_date": null,
-                "price": "12.00",
-                "late_fee_value": null,
-                "interest_value": null,
-                "amount": null,
-                "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
-                "user": "https://book-backend-rest.herokuapp.com/api/customers/1",
-                "book": "https://book-backend-rest.herokuapp.com/api/books/4"
-            },
-            {
-                "url": "https://book-backend-rest.herokuapp.com/api/rent/1",
-                "fees": {
-                    "days": 1,
-                    "amount": 12.0,
-                    "late_fee": 0.0,
-                    "interest": 0.0
-                },
-                "rental_date": "21/02/2021 05:04:29",
-                "return_date": "21.02.2021 05:39:55",
-                "price": "12.00",
-                "late_fee_value": null,
-                "interest_value": null,
-                "amount": null,
-                "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
-                "user": "https://book-backend-rest.herokuapp.com/api/customers/1",
-                "book": "https://book-backend-rest.herokuapp.com/api/books/4"
-            },
-            {
-                "url": "https://book-backend-rest.herokuapp.com/api/rent/5",
-                "fees": {
-                    "days": 2,
-                    "amount": 12.0,
-                    "late_fee": 0.0,
-                    "interest": 0.0
-                },
-                "rental_date": "20/02/2021 07:02:21",
-                "return_date": null,
-                "price": "12.00",
-                "late_fee_value": null,
-                "interest_value": null,
-                "amount": "22.00",
-                "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
-                "user": "https://book-backend-rest.herokuapp.com/api/customers/2",
-                "book": "https://book-backend-rest.herokuapp.com/api/books/3"
-            },
-            {
-                "url": "https://book-backend-rest.herokuapp.com/api/rent/4",
-                "fees": {
-                    "days": 3,
-                    "amount": 12.432,
-                    "late_fee": 0.36,
-                    "interest": 0.07200000000000001
-                },
-                "rental_date": "19/02/2021 07:02:21",
-                "return_date": "22.02.2021 04:33:04",
-                "price": "12.00",
-                "late_fee_value": "0.00",
-                "interest_value": "0.00",
-                "amount": "12.00",
-                "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
-                "user": "https://book-backend-rest.herokuapp.com/api/customers/1",
-                "book": "https://book-backend-rest.herokuapp.com/api/books/3"
-            },
-            {
-                "url": "https://book-backend-rest.herokuapp.com/api/rent/3",
-                "fees": {
-                    "days": 4,
-                    "amount": 12.792,
-                    "late_fee": 0.6,
-                    "interest": 0.192
-                },
-                "rental_date": "18/02/2021 07:02:21",
-                "return_date": null,
-                "price": "12.00",
-                "late_fee_value": null,
-                "interest_value": null,
-                "amount": "22.00",
-                "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
-                "user": "https://book-backend-rest.herokuapp.com/api/customers/2",
-                "book": "https://book-backend-rest.herokuapp.com/api/books/3"
-            },
-            {
-                "url": "https://book-backend-rest.herokuapp.com/api/rent/6",
-                "fees": {
-                    "days": 4,
-                    "amount": 12.792,
-                    "late_fee": 0.6,
-                    "interest": 0.192
-                },
-                "rental_date": "18/02/2021 07:02:21",
-                "return_date": null,
-                "price": "12.00",
-                "late_fee_value": null,
-                "interest_value": null,
-                "amount": "22.00",
-                "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
-                "user": "https://book-backend-rest.herokuapp.com/api/customers/2",
-                "book": "https://book-backend-rest.herokuapp.com/api/books/3"
-            },
-            {
-                "url": "https://book-backend-rest.herokuapp.com/api/rent/7",
-                "fees": {
-                    "days": 5,
-                    "amount": 12.84,
-                    "late_fee": 0.6,
-                    "interest": 0.24000000000000002
-                },
-                "rental_date": "17/02/2021 07:02:21",
-                "return_date": null,
-                "price": "12.00",
-                "late_fee_value": null,
-                "interest_value": null,
-                "amount": "22.00",
-                "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
-                "user": "https://book-backend-rest.herokuapp.com/api/customers/2",
-                "book": "https://book-backend-rest.herokuapp.com/api/books/3"
-            },
-            {
-                "url": "https://book-backend-rest.herokuapp.com/api/rent/2",
-                "fees": {
-                    "days": 7,
-                    "amount": 12.936,
-                    "late_fee": 0.6,
-                    "interest": 0.336
-                },
-                "rental_date": "15/02/2021 05:39:40",
-                "return_date": null,
-                "price": "12.00",
-                "late_fee_value": null,
-                "interest_value": null,
-                "amount": null,
-                "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
-                "user": "https://book-backend-rest.herokuapp.com/api/customers/1",
-                "book": "https://book-backend-rest.herokuapp.com/api/books/3"
-            }
-        ]
-    }
+  {
+    "url": "https://book-backend-rest.herokuapp.com/api/customers/2",
+    "email": "john.doe@gmail.com",
+    "avatar": "012scw_ons_crd_02.jpg",
+    "full_name": "John Doe",
+    "short_name": "Doe J.",
+    "rents_customer": []
+  },
+  {
+    "url": "https://book-backend-rest.herokuapp.com/api/customers/1",
+    "email": "admin@gmail.com",
+    "avatar": "22267408.jpeg",
+    "full_name": "Admin User",
+    "short_name": "User A.",
+    "rents_customer": [
+      {
+        "url": "https://book-backend-rest.herokuapp.com/api/rent/8",
+        "fees": {
+          "days": 1,
+          "amount": 12.0,
+          "late_fee": 0.0,
+          "interest": 0.0
+        },
+        "rental_date": "21/02/2021 17:40:40",
+        "return_date": null,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": null,
+        "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
+        "user": "https://book-backend-rest.herokuapp.com/api/customers/1",
+        "book": "https://book-backend-rest.herokuapp.com/api/books/4"
+      },
+      {
+        "url": "https://book-backend-rest.herokuapp.com/api/rent/1",
+        "fees": {
+          "days": 1,
+          "amount": 12.0,
+          "late_fee": 0.0,
+          "interest": 0.0
+        },
+        "rental_date": "21/02/2021 05:04:29",
+        "return_date": "21.02.2021 05:39:55",
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": null,
+        "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
+        "user": "https://book-backend-rest.herokuapp.com/api/customers/1",
+        "book": "https://book-backend-rest.herokuapp.com/api/books/4"
+      },
+      {
+        "url": "https://book-backend-rest.herokuapp.com/api/rent/5",
+        "fees": {
+          "days": 2,
+          "amount": 12.0,
+          "late_fee": 0.0,
+          "interest": 0.0
+        },
+        "rental_date": "20/02/2021 07:02:21",
+        "return_date": null,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": "22.00",
+        "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
+        "user": "https://book-backend-rest.herokuapp.com/api/customers/2",
+        "book": "https://book-backend-rest.herokuapp.com/api/books/3"
+      },
+      {
+        "url": "https://book-backend-rest.herokuapp.com/api/rent/4",
+        "fees": {
+          "days": 3,
+          "amount": 12.432,
+          "late_fee": 0.36,
+          "interest": 0.07200000000000001
+        },
+        "rental_date": "19/02/2021 07:02:21",
+        "return_date": "22.02.2021 04:33:04",
+        "price": "12.00",
+        "late_fee_value": "0.00",
+        "interest_value": "0.00",
+        "amount": "12.00",
+        "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
+        "user": "https://book-backend-rest.herokuapp.com/api/customers/1",
+        "book": "https://book-backend-rest.herokuapp.com/api/books/3"
+      },
+      {
+        "url": "https://book-backend-rest.herokuapp.com/api/rent/3",
+        "fees": {
+          "days": 4,
+          "amount": 12.792,
+          "late_fee": 0.6,
+          "interest": 0.192
+        },
+        "rental_date": "18/02/2021 07:02:21",
+        "return_date": null,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": "22.00",
+        "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
+        "user": "https://book-backend-rest.herokuapp.com/api/customers/2",
+        "book": "https://book-backend-rest.herokuapp.com/api/books/3"
+      },
+      {
+        "url": "https://book-backend-rest.herokuapp.com/api/rent/6",
+        "fees": {
+          "days": 4,
+          "amount": 12.792,
+          "late_fee": 0.6,
+          "interest": 0.192
+        },
+        "rental_date": "18/02/2021 07:02:21",
+        "return_date": null,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": "22.00",
+        "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
+        "user": "https://book-backend-rest.herokuapp.com/api/customers/2",
+        "book": "https://book-backend-rest.herokuapp.com/api/books/3"
+      },
+      {
+        "url": "https://book-backend-rest.herokuapp.com/api/rent/7",
+        "fees": {
+          "days": 5,
+          "amount": 12.84,
+          "late_fee": 0.6,
+          "interest": 0.24000000000000002
+        },
+        "rental_date": "17/02/2021 07:02:21",
+        "return_date": null,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": "22.00",
+        "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
+        "user": "https://book-backend-rest.herokuapp.com/api/customers/2",
+        "book": "https://book-backend-rest.herokuapp.com/api/books/3"
+      },
+      {
+        "url": "https://book-backend-rest.herokuapp.com/api/rent/2",
+        "fees": {
+          "days": 7,
+          "amount": 12.936,
+          "late_fee": 0.6,
+          "interest": 0.336
+        },
+        "rental_date": "15/02/2021 05:39:40",
+        "return_date": null,
+        "price": "12.00",
+        "late_fee_value": null,
+        "interest_value": null,
+        "amount": null,
+        "customer": "https://book-backend-rest.herokuapp.com/api/customers/1",
+        "user": "https://book-backend-rest.herokuapp.com/api/customers/1",
+        "book": "https://book-backend-rest.herokuapp.com/api/books/3"
+      }
+    ]
+  }
 ]
 ```
 
-### Get Book
+</details>
 
-- curl
+### Get Books
+
  ```bash
  curl --location --request GET 'https://book-backend-rest.herokuapp.com/api/books'
  ```
-- Response
+
+<details>
+<summary>Response</summary>
+
 ```json
 [
     {
@@ -402,6 +411,7 @@ Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API end
     }
 ]
 ```
+</details>
 
 <!-- ROADMAP -->
 
