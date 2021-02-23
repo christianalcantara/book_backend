@@ -22,7 +22,7 @@ class AuthorViewSet(viewsets.ModelViewSet):
     serializer_class = AuthorSerializer
 
     def get_permissions(self):
-        """ Only admin user CRUD operations """
+        """Only admin user CRUD operations"""
         permission_classes = []
         if self.action not in ["list", "retrieve"]:
             permission_classes = [permissions.IsAdminUser]

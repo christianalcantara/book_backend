@@ -2,6 +2,7 @@
 
 set -o errexit
 set -o pipefail
+# shellcheck disable=SC2124
 cmd="$@"
 
 function postgres_ready(){
@@ -28,4 +29,4 @@ until postgres_ready; do
 done
 
 >&2 echo "Postgres is up - continuing..."
-exec $cmd
+exec "$cmd"

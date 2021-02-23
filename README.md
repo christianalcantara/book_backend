@@ -87,22 +87,26 @@ Use Heroku button to deploy
 <p align="center">
 
 [![asciicast](https://asciinema.org/a/Q1GGnI1ZfcT5WJxCCvBBoiobN.svg)](https://asciinema.org/a/Q1GGnI1ZfcT5WJxCCvBBoiobN)
+
 </p>
 
 1. Clone the repo
+
    ```bash
    $ git clone https://github.com/christianalcantara/book_backend.git
 
    # jump do path
    $ cd book_backend
    ```
+
 2. Setup project environment with [virtualenv](https://virtualenv.pypa.io) and [pip](https://pip.pypa.io).
-    ```bash
-    $ virtualenv venv
-    $ source venv/bin/activate
-    $ pip install -r requirements.txt
-    ```
+   ```bash
+   $ virtualenv venv
+   $ source venv/bin/activate
+   $ pip install -r requirements.txt
+   ```
 3. Create dotenv file and define enviroment variables.
+
    ```bash
    $ touch .env
    $ echo "#Django
@@ -116,7 +120,8 @@ Use Heroku button to deploy
      SENTRY_DSN=https://youdnsexample.ingest.sentry.io/keyexample" > .env
    ```
 
- 4. Migrate the database and run
+4. Migrate the database and run
+
    ```shell
    $ python manage.py migrate
 
@@ -142,23 +147,23 @@ Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API end
 
 - curl
 
- ```bash
- $ curl -X POST "https://book-backend-rest.herokuapp.com/api-token-auth/" -H "accept: application/json" -H "Content-Type: application/json" -H "X-CSRFToken: uoQy2P3gGWwG3jPtI9puLIazKmvGBnmd9KYUK6bopcUuAdyxYaY5YRJOs4s5d22N" -d "{ \"username\": \"admin@gmail.com\", \"password\": \"adminpassword\"}"
- ```
+```bash
+curl -X POST "https://book-backend-rest.herokuapp.com/api-token-auth/" -H "accept: application/json" -H "Content-Type: application/json" -H "X-CSRFToken: uoQy2P3gGWwG3jPtI9puLIazKmvGBnmd9KYUK6bopcUuAdyxYaY5YRJOs4s5d22N" -d "{ \"username\": \"admin@gmail.com\", \"password\": \"adminpassword\"}"
+```
 
 - Response
 
-  ```json
-  {
-    "token": "71b3e6c42f5305a2ee4a1a2b46631662ab12a83b"
-  }
-  ```
+```json
+{
+  "token": "71b3e6c42f5305a2ee4a1a2b46631662ab12a83b"
+}
+```
 
 ### Get Customers
 
-  ```bash
-  $ curl --location --request GET 'https://book-backend-rest.herokuapp.com/api/customers/' --header 'Authorization: Token 71b3e6c42f5305a2ee4a1a2b46631662ab12a83b'
-  ```
+```bash
+curl --location --request GET 'https://book-backend-rest.herokuapp.com/api/customers/' --header 'Authorization: Token 71b3e6c42f5305a2ee4a1a2b46631662ab12a83b'
+```
 
 <details>
 <summary>Response</summary>
@@ -333,9 +338,9 @@ Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API end
 
 ### Get Books
 
- ```bash
- curl --location --request GET 'https://book-backend-rest.herokuapp.com/api/books'
- ```
+```bash
+curl --location --request GET 'https://book-backend-rest.herokuapp.com/api/books'
+```
 
 <details>
 <summary>Response</summary>
@@ -350,10 +355,7 @@ Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API end
       {
         "id": 1,
         "name": "Vijaya Khisty Bodach",
-        "books": [
-          "Test Book",
-          "Flowers"
-        ],
+        "books": ["Test Book", "Flowers"],
         "created": "19/02/2021 21:17:47"
       }
     ],
@@ -370,9 +372,7 @@ Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API end
       {
         "id": 2,
         "name": "Gail Saunders-Smith",
-        "books": [
-          "Flexible Query Answering Systems"
-        ],
+        "books": ["Flexible Query Answering Systems"],
         "created": "19/02/2021 21:17:55"
       }
     ],
@@ -389,9 +389,7 @@ Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API end
       {
         "id": 3,
         "name": "Paul McEvoy",
-        "books": [
-          "The Contemporary Thesaurus of Search Terms and Synonyms"
-        ],
+        "books": ["The Contemporary Thesaurus of Search Terms and Synonyms"],
         "created": "19/02/2021 21:18:05"
       }
     ],
@@ -408,10 +406,7 @@ Clique [here](https://book-backend-rest.herokuapp.com/) to view complete API end
       {
         "id": 1,
         "name": "Vijaya Khisty Bodach",
-        "books": [
-          "Test Book",
-          "Flowers"
-        ],
+        "books": ["Test Book", "Flowers"],
         "created": "19/02/2021 21:17:47"
       }
     ],
