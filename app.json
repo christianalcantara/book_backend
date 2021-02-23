@@ -17,5 +17,12 @@
   "addons": ["heroku-postgresql:hobby-dev"],
   "scripts": {
     "postdeploy": "python manage.py loaddata apps/users/fixtures/users.json apps/book/fixtures/books.json apps/rent/fixtures/rents.json"
+  },
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "python manage.py test"
+      }
+    }
   }
 }
