@@ -4,6 +4,8 @@
 [![GitHub forks](https://img.shields.io/github/forks/christianalcantara/book_backend)](https://github.com/christianalcantara/book_backend/network)
 [![GitHub stars](https://img.shields.io/github/stars/christianalcantara/book_backend)](https://github.com/christianalcantara/book_backend/stargazers)
 [![GitHub license](https://img.shields.io/github/license/christianalcantara/book_backend)](https://github.com/christianalcantara/book_backend/blob/main/LICENSE)
+[![Django CI](https://github.com/christianalcantara/book_backend/actions/workflows/django.yml/badge.svg)](https://github.com/christianalcantara/book_backend/actions/workflows/django.yml)
+
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
