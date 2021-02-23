@@ -1,3 +1,5 @@
+[![Updates](https://pyup.io/repos/github/christianalcantara/book_backend/shield.svg)](https://pyup.io/repos/github/christianalcantara/book_backend/)
+[![Python 3](https://pyup.io/repos/github/christianalcantara/book_backend/python-3-shield.svg)](https://pyup.io/repos/github/christianalcantara/book_backend/)
 [![GitHub issues](https://img.shields.io/github/issues/christianalcantara/book_backend)](https://github.com/christianalcantara/book_backend/issues)
 [![GitHub forks](https://img.shields.io/github/forks/christianalcantara/book_backend)](https://github.com/christianalcantara/book_backend/network)
 [![GitHub stars](https://img.shields.io/github/stars/christianalcantara/book_backend)](https://github.com/christianalcantara/book_backend/stargazers)
@@ -8,7 +10,7 @@
   <a href="https://github.com/christianalcantara/book_backend">
     <img src="docs/images/django-logo.png" alt="Logo" height="80">
   </a>
-
+</p>
 <h3 align="center">Django Backend</h3>
 
   <p align="center">
@@ -29,7 +31,7 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Deploy Heroku</a></li>
+        <li><a href="#deploy-heroku">Deploy Heroku</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
