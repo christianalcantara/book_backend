@@ -433,3 +433,13 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <a href="mailto:christian.douglas.alcantara@gmail.com">Christian Douglas Alcântara </a>
 
 Project Link: [https://github.com/christianalcantara/book_backend](https://github.com/christianalcantara/book_backend)
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[stars-url]: https://github.com/christianalcantara/book_backend/stargazers
+
+[license-url]: https://github.com/christianalcantara/book_backend/blob/master/LICENSE.txt
+
+[product-screenshot]: docs/images/screenshot.png
