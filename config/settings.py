@@ -170,7 +170,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": STATICFILES_DIRS,
+        "DIRS": [str(ROOT_DIR("templates"))],
         "OPTIONS": {
             "debug": DEBUG,
             "loaders": [
